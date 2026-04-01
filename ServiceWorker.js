@@ -1,9 +1,9 @@
 const cacheName = "FourDArt-Wonju_AR-0.1.36";
 const contentToCache = [
-    "Build/LifeCelebration.loader.js",
-    "Build/LifeCelebration.framework.js.unityweb",
-    "Build/LifeCelebration.data.unityweb",
-    "Build/LifeCelebration.wasm.unityweb",
+    "Build/Test2.loader.js",
+    "Build/Test2.framework.js.unityweb",
+    "Build/Test2.data.unityweb",
+    "Build/Test2.wasm.unityweb",
     "TemplateData/style.css"
 
 ];
