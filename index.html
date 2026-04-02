@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Unity WebGL Player | Wonju_AR</title>
+    <title>Unity WebGL Player | LifeCelebration_AR</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
@@ -21,6 +21,18 @@
       button:hover { filter: brightness(1.15)}
       button:active { transform: scale(0.95); filter: brightness(0.85)}
       .ctaDiv { display: flex; flex-direction: column; align-items: center; justify-content: center; position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: #2f2e32aa; z-index: 99; transition: 0.5s;}
+        @font-face {
+            font-family: 'binggrae';
+            src: url('TemplateData/fonts/Binggrae2-Bold.ttf') format('ttf');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'paperlogy';
+            src: url('TemplateData/fonts/Paperlogy-7Bold.ttf') format('ttf');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
   </head>
   <body>
@@ -28,17 +40,30 @@
 
     <video id="webcam-video" muted autoplay playsinline style="width:1px;position:absolute"></video>
     <canvas id="video-canvas" style="width:100%; height:100%; object-fit:cover; position:absolute"></canvas>
-    <div id="startARDiv" class="ctaDiv" style=" background: url('TemplateData/bg.png') no-repeat center center fixed;">
+    <div id="startARDiv" class="ctaDiv" style=" background: url('TemplateData/bg.png') center center fixed; background-size: cover; ">
       <select id="chooseCamSel" style="visibility: hidden; background: transparent; border: .1vh solid black; border-radius: max(1vw, 1vh); color:white; font-size: max(2vw, 2vh); position: absolute; bottom: 80px" 
         onchange="SelectCam()"></select>
-      <img src = 'TemplateData/title_03.png' alt = 'title_img' style="width: 100%;  object-fit: cover; ">
-      <img src = 'TemplateData/title_AR.png' alt = 'title2_img' style=" object-fit: cover; margin: -5%;">
-      <p style="text-align: center; width:min(80vw, 60vh); font-size: x-large; text-shadow:
-      -1px -1px 0 #000,  
-       1px -1px 0 #000,
-      -1px  1px 0 #000,
-       1px  1px 0 #000; font-weight: bold;">증강 현실 체험을 위해<br>기기의 카메라와 모션 센서<br>접근 권한이 필요합니다.</p>
-      <button id="startARButton" onclick="StartAR()" style="visibility: hidden">접속하기</button>
+      <img src = 'TemplateData/title_03.png' alt = 'title_img' style="width: 80%;  object-fit: cover; margin: 10%">
+      <img src = 'TemplateData/title_AR.png' alt = 'title2_img' style="width: 70%; object-fit: cover; margin: -5%;">
+ <!-- <button id="startARButton" onclick="StartAR()" style="visibility: hidden">접속하기</button> -->
+        <!-- <button id="startARButton" onclick="StartAR()" style="visibility: hidden; border: none; background: none; padding: 0;"> -->
+        <button id="startARButton" onclick="StartAR()" style="visibility: hidden; border: none; background: none; padding: 0; margin: 30px">
+            <img src="TemplateData/Btn_AR_Start.png" alt="접속하기" style="width: 200px;">
+        </button>
+
+        <p style="
+        font-family: 'binggrae';
+        color: #000;
+        text-align: center;
+        width: min(80vw, 60vh);
+        font-size: 0.8rem;
+        font-weight: bold;
+        line-height: 1.2;
+        ">
+        증강 현실 체험을 위해<br>
+        기기의 카메라와 모션 센서<br>
+        접근 권한이 필요합니다.
+        </p>
       <br><br><br>
     </div>
     <div id="screenshotDiv" style="visibility: hidden; opacity: 0;" class="ctaDiv">
@@ -102,9 +127,22 @@
     <div id="unity-container">
       <canvas id="unity-canvas" width=1152 height=2048 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+        <div id="unity-logo"style="width: 100px; height: 100px; margin: 0 auto;"></div>
+            <p style="
+            margin: 0;
+            font-family: 'paperlogy';
+            color: white;
+            text-align: center;
+            width: min(80vw, 60vh);
+            font-size: 1.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            ">
+            로딩중...
+            </p>
+
+        <div id="unity-progress-bar-empty" style="visibility: hidden;">
+            <div id="unity-progress-bar-full"></div>
         </div>
       </div>
       <div id="unity-warning"> </div>
@@ -213,15 +251,15 @@
         }, 500);
 
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/Wonju_AR_Web.loader.js";
+        var loaderUrl = buildUrl + "/LifeCelebration_AR.loader.js";
         var config = {
-          dataUrl: buildUrl + "/Wonju_AR_Web.data.unityweb",
-          frameworkUrl: buildUrl + "/Wonju_AR_Web.framework.js.unityweb",
-          codeUrl: buildUrl + "/Wonju_AR_Web.wasm.unityweb",
+          dataUrl: buildUrl + "/LifeCelebration_AR.data.unityweb",
+          frameworkUrl: buildUrl + "/LifeCelebration_AR.framework.js.unityweb",
+          codeUrl: buildUrl + "/LifeCelebration_AR.wasm.unityweb",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "FourDArt",
-          productName: "Wonju_AR",
-          productVersion: "0.1.38",
+          productName: "LifeCelebration_AR",
+          productVersion: "0.1.0",
           showBanner: unityShowBanner,
         };
 
