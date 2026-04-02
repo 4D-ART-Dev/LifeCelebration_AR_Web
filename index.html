@@ -33,6 +33,27 @@
             font-weight: normal;
             font-style: normal;
         }
+
+        
+        @keyframes slowRotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #unity-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            animation: slowRotate 5s linear infinite;
+        }
     </style>
   </head>
   <body>
@@ -127,14 +148,7 @@
     <div id="unity-container">
       <canvas id="unity-canvas" width=1152 height=2048 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
-        <div id="unity-logo" style="
-            width: 100px;
-            height: 100px;
-            margin: 0 auto;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            "></div>
+        <div id="unity-logo"></div>
             <p style="
             margin: 0;
             font-family: 'paperlogy';
@@ -266,7 +280,7 @@
           streamingAssetsUrl: "StreamingAssets",
           companyName: "FourDArt",
           productName: "LifeCelebration_AR",
-          productVersion: "0.1.2",
+          productVersion: "0.1.3",
           showBanner: unityShowBanner,
         };
 
