@@ -1,4 +1,4 @@
-const cacheName = "FourDArt-LifeCelebration_AR-0.1.12";
+const cacheName = "FourDArt-LifeCelebration_AR-0.1.13";
 const contentToCache = [
     "Build/LifeCelebration_AR.loader.js",
     "Build/LifeCelebration_AR.framework.js.unityweb",
